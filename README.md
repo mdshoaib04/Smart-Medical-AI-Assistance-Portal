@@ -154,6 +154,7 @@ Video or in-person
 
 Manage upcoming visits
 
+'''
 📂 Project Structure
 medilink/
 ├── src/
@@ -171,6 +172,7 @@ medilink/
 ├── .env
 ├── package.json
 └── ...
+'''
 
 🧰 Available Scripts
 
