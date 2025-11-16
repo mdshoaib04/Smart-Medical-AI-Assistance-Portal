@@ -276,8 +276,13 @@ export const PatientDashboard: React.FC = () => {
                 </div>
               </div>
 
-              <p className="text-gray-700 mb-4">Select your emergency condition or use voice command:</p>
-              
+              <p className="text-gray-700 mb-4">
+              Select your emergency condition or use voice command:<br />
+              ⚠️ SAY "HELP" OR "EMERGENCY" TO CALL AMBULANCE IMMEDIATELY ⚠️
+               </p>
+
+
+
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                 {emergencyConditions.map((condition) => (
                   <button

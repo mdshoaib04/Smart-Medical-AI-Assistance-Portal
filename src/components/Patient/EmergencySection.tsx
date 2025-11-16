@@ -28,7 +28,6 @@ export const EmergencySection: React.FC = () => {
   };
 
   return (
-    <>
     <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl shadow-lg p-6 border-2 border-red-200">
       <div className="flex items-center gap-3 mb-4">
         <AlertTriangle className="w-8 h-8 text-red-600 animate-pulse" />
@@ -52,12 +51,18 @@ export const EmergencySection: React.FC = () => {
             <p className="text-lg font-bold text-red-600">102</p>
           </div>
         </div>
+        
+        <div className="bg-red-600 text-white p-4 rounded-lg mb-4 animate-pulse border-2 border-red-800">
+          <p className="font-bold text-center text-xl">
+            ⚠️ SAY "HELP" OR "EMERGENCY" TO CALL AMBULANCE IMMEDIATELY ⚠️
+          </p>
+        </div>
 
         {!emergencyActive ? (
           <button
             onClick={handleEmergencyRequest}
             disabled={loading}
-            className="w-full bg-red-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-lg"
+            className="w-full bg-red-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-lg mt-4"
           >
             {loading ? (
               <>
@@ -102,9 +107,5 @@ export const EmergencySection: React.FC = () => {
         <p>⚠️ Use emergency services responsibly</p>
       </div>
     </div>
-    <p className="text-red-600 font-bold text-center mt-3 text-lg">
-      Say "help" or "emergency" to call ambulance immediately
-    </p>
-    </>
   );
 };
