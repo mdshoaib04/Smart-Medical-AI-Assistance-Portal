@@ -28,6 +28,7 @@ export const EmergencySection: React.FC = () => {
   };
 
   return (
+    <>
     <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl shadow-lg p-6 border-2 border-red-200">
       <div className="flex items-center gap-3 mb-4">
         <AlertTriangle className="w-8 h-8 text-red-600 animate-pulse" />
@@ -101,5 +102,9 @@ export const EmergencySection: React.FC = () => {
         <p>⚠️ Use emergency services responsibly</p>
       </div>
     </div>
+    <p className="text-red-600 font-bold text-center mt-3 text-lg">
+      Say "help" or "emergency" to call ambulance immediately
+    </p>
+    </>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+
 import { Login } from './Auth/Login';
 import { Register } from './Auth/Register';
-import { LanguageSwitcher } from './LanguageSwitcher';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Activity, Heart, Shield, Zap } from 'lucide-react';
 
@@ -11,9 +11,6 @@ export const AuthScreen: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-500 via-blue-500 to-blue-600 flex flex-col">
-      <div className="absolute top-4 right-4">
-        <LanguageSwitcher />
-      </div>
 
       <div className="flex-1 flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-6xl">
@@ -56,7 +53,7 @@ export const AuthScreen: React.FC = () => {
       <footer className="text-center py-4 text-white text-sm">
         <p className="language-transition">{t('copyright')}</p>
         <p className="mt-2 text-xs opacity-80">
-        DEVELOPED BY BHARATESH BCA STUDENTS :- MEGHARAJ UPADHYE & SUCHITA MADIWALAR.
+        DEVELOPED BY :- MOHD SHOAIB SOUDAGAR.
         </p>
       </footer>
     </div>

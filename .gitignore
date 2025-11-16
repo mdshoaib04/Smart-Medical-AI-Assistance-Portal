@@ -1,3 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+/dist/
+/dist-ssr/
+/build/
+/*.exe
+/*.dmg
+/*.deb
+/*.rpm
+/*.zip
+/*.tar.gz
+
+# Logs
 logs
 *.log
 npm-debug.log*
@@ -6,18 +21,64 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
+# IDE and editor files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
+*.swp
+*.swo
+*~
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-.env
+
+# OS generated files
+Thumbs.db
+
+# Private and sensitive files
+*.private
+*.secret
+.env.*.local
+config/*.json
+!config/default.json
+
+# Debug files
+*.debug
+*.stackdump
+
+# Runtime data
+.pid
+*.pid
+
+# Coverage directory
+coverage/
+
+# Temporary folders
+.tmp/
+.temp/
+
+# Database files
+*.db
+*.sqlite
+
+# Session files
+*.session
+*.sess
+
+# Uploads directory (if applicable)
+uploads/
+
+# Cache directories
+.cache/
+.parcel-cache/
+vite.config.ts.timestamp-*

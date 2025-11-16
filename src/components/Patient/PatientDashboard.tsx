@@ -7,7 +7,6 @@ import { EmergencySection } from './EmergencySection';
 import { MedicalRecords } from './MedicalRecords';
 import { Activity, LogOut, User, Phone, Globe, Calendar, Edit2, Save, X, Mail, Home, Brain, AlertCircle as AlertIcon, Stethoscope } from 'lucide-react';
 import { Appointment } from '../../types';
-import { LanguageSwitcher } from '../LanguageSwitcher';
 
 export const PatientDashboard: React.FC = () => {
   const { profile, signOut } = useAuth();
@@ -275,13 +274,6 @@ export const PatientDashboard: React.FC = () => {
                   <AlertIcon className="w-8 h-8 text-red-600 animate-pulse" />
                   <h2 className="text-2xl font-bold text-red-800">Emergency Services</h2>
                 </div>
-                {isListening && (
-                  <div className="px-3 py-1 bg-purple-100 border border-purple-300 rounded-lg">
-                    <p className="text-xs font-semibold text-purple-800">
-                      🎙️ Say "Help" or "Emergency"
-                    </p>
-                  </div>
-                )}
               </div>
 
               <p className="text-gray-700 mb-4">Select your emergency condition or use voice command:</p>
@@ -507,16 +499,6 @@ export const PatientDashboard: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <LanguageSwitcher />
-              
-              {/* Voice Listening Indicator */}
-              {isListening && (
-                <div className="flex items-center gap-2 px-3 py-2 bg-red-50 border border-red-200 rounded-lg">
-                  <div className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></div>
-                  <span className="text-xs font-semibold text-red-600">Voice Active</span>
-                </div>
-              )}
-              
               <div className="text-right">
                 <p className="text-sm text-gray-600">Welcome,</p>
                 <p className="font-semibold text-gray-800">{profile?.full_name}</p>
@@ -630,8 +612,25 @@ export const PatientDashboard: React.FC = () => {
                         <div className="flex items-center gap-3 p-3 bg-orange-50 rounded-lg">
                           <Globe className="w-5 h-5 text-orange-600" />
                           <div className="flex-1">
-                            <p className="text-xs text-gray-500">Language</p>
-                            <p className="font-semibold text-gray-800">{getPreferredLanguage()}</p>
+                            <label className="block text-xs text-gray-500 mb-1">Language</label>
+                            <select
+                              value={profile?.preferred_language || 'english'}
+                              onChange={(e) => {
+                                // Assuming setLanguage is available from useLanguage context
+                                // and profile can be updated. For now, just log.
+                                console.log('Language changed to:', e.target.value);
+                                // In a real app, you'd update the user's profile in the backend
+                                // and then update the local profile state.
+                                // For this task, we'll just update localStorage and reload.
+                                localStorage.setItem('medilink_language', e.target.value);
+                                window.location.reload(); // Force reload to apply language change
+                              }}
+                              className="w-full px-2 py-1 border rounded-lg focus:ring-2 focus:ring-teal-500 text-gray-800 font-semibold bg-white"
+                            >
+                              <option value="english">🇬🇧 English</option>
+                              <option value="hindi">🇮🇳 Hindi</option>
+                              <option value="kannada">🇮🇳 Kannada</option>
+                            </select>
                           </div>
                         </div>
                         
